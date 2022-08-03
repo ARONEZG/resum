@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Gotish";
-  src: url(../../../fonts/GrenzeGotisch-VariableFont_wght.ttf);
+  /*font-family: "Gotish";*/
+  /*src: url(../../../fonts/GrenzeGotisch-VariableFont_wght.ttf);*/
 }
 
 
@@ -19,6 +19,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   
 }

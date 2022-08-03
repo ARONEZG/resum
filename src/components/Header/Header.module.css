@@ -3,13 +3,13 @@
     /* padding: 5px 0 0 40px; */
     width: 100%;
     padding: 5px 0 0 0;
-    position: fixed;
+    /*position: fixed;*/
     top: 0;
     display: flex;
     justify-content: space-around;
     padding: 0;
     margin: 0;
-    height: 15vh;
+    height: 100px;
 }
 
 .navbar {
