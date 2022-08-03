@@ -1,5 +1,5 @@
 import React from "react";
-import s from './Main.module.css';
+import s from './MyPosts.module.css';
 
 const MyPosts = () => <main className={s.main}>
     gdfgdfdfg
