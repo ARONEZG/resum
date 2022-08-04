@@ -1,20 +1,24 @@
 import React from "react";
 import s from './MyPosts.module.css';
+import Post from './Post/Post'
 
 const MyPosts = () => <main className={s.main}>
-    <div >
-        <h3>My posts</h3>
+    <div>
+        My posts
         <div>
-            <div>
-                <textarea></textarea>
-            </div>
-            <div>
-                <button>Add post</button>
-            </div>
+            <textarea></textarea>
+            <button>Add post</button>
+
         </div>
-
+        <div className={" "}>
+            <Post message='Hi, how are you?' />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+        </div>
     </div>
-
 </main>
 
 
