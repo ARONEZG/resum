@@ -11,8 +11,8 @@ const Profile = () =>
             <Navbar />
         
             <Routes>
-                <Route path="/pos" element={<MyPosts />} />
-                <Route path="/dialogs" element={<Dialogs />} />
+                <Route path="/pos/*" element={<MyPosts />} />
+                <Route path="/dialogs/*" element={<Dialogs />} />
             </Routes>
         
 

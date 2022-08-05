@@ -2,4 +2,26 @@
     padding: 5px;
     flex-grow: 3;
     background-color: rgba(54, 13, 52, .5);
+    display: flex;
+}
+
+.dialogs {
+    flex: 1;
+}
+
+.dialogsItems {
+    padding: 10px;
+}
+
+.dialogsItems .active {
+    color: gold;
+}
+
+.messages {
+    flex:1;
+    padding: 10px;
+}
+
+.message {
+
 }
