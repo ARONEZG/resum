@@ -12,7 +12,16 @@ const Myp = () => {
     </div>;
 }
 
-const MyPosts = () => <main className={s.main}>
+const MyPosts = () => { 
+    const postsData = [
+        { id: 1, message: 'Hi, how are you?', likesCount: 1},
+        { id: 2, message: 'Hi, how are you?', likesCount: 1},
+        { id: 3, message: 'Hi, how are you?', likesCount: 1},
+        { id: 4, message: 'Hi, how are you?', likesCount: 1},
+        { id: 5, message: 'Hi, how are you?', likesCount: 1},
+        { id: 6, message: 'Hi, how are you?', likesCount: 1},
+    ]
+    return <main className={s.main}>
     <div>
         <Myp/>
         <div className={" "}>
@@ -25,6 +34,6 @@ const MyPosts = () => <main className={s.main}>
         </div>
     </div>
 </main>
-
+}
 
 export default MyPosts;
