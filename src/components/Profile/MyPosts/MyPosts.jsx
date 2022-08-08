@@ -4,17 +4,23 @@ import Post from './Post/Post'
 import Myp from "./Myp/Myp";
 
 
+
 const MyPosts = (props) => {
-
-
-    const postsElements = props.posts.map(
-        post => <Post id={post.id} message={post.message} likes={post.likesCount}/>);
+    const postsElements = props.profilePage.posts.map(
+        post =>
+            <Post id={post.id}
+                  message={post.message}
+                  likes={post.likesCount}/>
+    );
 
     return <main className={s.main}>
-    <div>
-        <Myp addPosts={props.addPosts}/>
-        <div className={" "}>
-            {postsElements}
+        <div>
+            <Myp addPost={props.addPost}
+                 newPostText={props.profilePage.newPostText}
+                 updateNewPostText={props.updateNewPostText}
+            />
+            <div className={" "}>
+                {postsElements}
         </div>
     </div>
 </main>
