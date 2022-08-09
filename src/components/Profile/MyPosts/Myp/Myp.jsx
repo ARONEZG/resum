@@ -2,10 +2,10 @@ import React from "react";
 
 
 const inputWindow = (props) => {
-
     const newPostElement = React.createRef();
 
     const textInPost = () => {
+        debugger;
         props.addPost();
     }
     const onPostChange = () => {
