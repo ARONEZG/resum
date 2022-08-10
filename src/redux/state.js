@@ -1,7 +1,7 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_TEXT_AREA = 'UPDATE-TEXT-AREA';
+
 const store = {
-    _callSubscriber() {
-        console.log('State was changed');
-    },
     _state: {
         profilePage: {
             posts: [
@@ -35,12 +35,11 @@ const store = {
     },
 
     getState() {
-        debugger;
         return this._state;
     },
 
     dispatch(action) {
-        if (action.type === 'ÁDD-POST') {
+        if (action.type === ADD_POST) {
             const newId = this._state.profilePage.posts.length + 1;
         const newPost = {
             id: newId,
@@ -48,10 +47,10 @@ const store = {
             likesCount: newId,
         };
         this._state.profilePage.posts.push(newPost);
-        this.updateNewPostText('');
+        this._state.profilePage.newPostText = '';
         this._callSubscriber(this._state);
         }
-        else if (action.type === 'ÚPDATE-TEXT-AREA') {
+        else if (action.type === UPDATE_TEXT_AREA) {
             this._state.profilePage.newPostText = action.newText;
         this._callSubscriber(this._state);
         }
@@ -59,12 +58,21 @@ const store = {
 
 
     subscribe(observer) {
-        this._callSubscriber = observer;
+        this._callSubscriber = observer; // функция для рендеринга
     },
 
 
 }
 
+export const addPostActionCreator = () => ({
+        type: ADD_POST
+    })
+
+
+export const updateNewPostActionCreator = (text) => ({
+        type: UPDATE_TEXT_AREA,
+        newText: text
+    })
 
 
 export default store;

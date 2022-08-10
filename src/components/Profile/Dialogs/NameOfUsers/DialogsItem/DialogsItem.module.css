@@ -1,0 +1,28 @@
+
+
+.dialogsItems {
+    padding: 10px;
+    color: white;
+}
+
+.dialogsItems .active {
+    color: gold;
+}
+
+
+
+.active {
+    border: 1px solid gold;
+    flex-direction: column;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bd3b20;
+
+
+}
+
+.addDialog {
+    align-self: flex-end;
+}

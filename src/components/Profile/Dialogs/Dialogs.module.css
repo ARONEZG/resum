@@ -7,22 +7,14 @@
 
 .dialogs {
     flex: 1;
-}
+    border: 2px solid white;
+    display: flex;
 
-.dialogsItems {
-    padding: 10px;
-    color: white;
-}
-
-.dialogsItems .active {
-    color: gold;
 }
 
 .messages {
+    border: 2px solid white;
     flex:1;
     padding: 10px;
 }
 
-.messages.message {
-    color:white;
-}

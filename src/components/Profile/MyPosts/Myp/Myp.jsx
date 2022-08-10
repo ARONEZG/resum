@@ -1,16 +1,18 @@
 import React from "react";
-
+import {addPostActionCreator, updateNewPostActionCreator} from "../../../../redux/state";
 
 const inputWindow = (props) => {
     const newPostElement = React.createRef();
 
+
+
     const textInPost = () => {
-        debugger;
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPostActionCreator());
     }
     const onPostChange = () => {
         const text = newPostElement.current.value;
-        props.dispatch({type: 'ÚPDATE-TEXT-AREA', newText: text});
+        const action = updateNewPostActionCreator(text);
+        props.dispatch(action);
     }
 
     return <div> My posts
