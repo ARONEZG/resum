@@ -10,10 +10,9 @@ function App(props) {
     return (<div className="page">
             <Header/>
             <Profile
-                addPost={props.addPost}
+                dispatch={props.dispatch}
                 profilePage={props.appState.profilePage}
                 messagesPage={props.appState.messagesPage}
-                updateNewPostText={props.updateNewPostText}
             />
             <Footer/>
         </div>

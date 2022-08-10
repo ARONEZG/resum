@@ -14,8 +14,7 @@ const Profile = (props) => {
         <Routes>
             <Route path="/pos/*" element={<MyPosts
                 profilePage={props.profilePage}
-                addPost={props.addPost}
-                updateNewPostText={props.updateNewPostText}
+                dispatch={props.dispatch}
             />}
             />
             <Route path="/dialogs/*" element={<Dialogs

@@ -39,8 +39,9 @@ const store = {
         return this._state;
     },
 
-    addPost() {
-        const newId = this._state.profilePage.posts.length + 1;
+    dispatch(action) {
+        if (action.type === 'ÁDD-POST') {
+            const newId = this._state.profilePage.posts.length + 1;
         const newPost = {
             id: newId,
             message: this._state.profilePage.newPostText,
@@ -49,12 +50,13 @@ const store = {
         this._state.profilePage.posts.push(newPost);
         this.updateNewPostText('');
         this._callSubscriber(this._state);
+        }
+        else if (action.type === 'ÚPDATE-TEXT-AREA') {
+            this._state.profilePage.newPostText = action.newText;
+        this._callSubscriber(this._state);
+        }
     },
 
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
 
     subscribe(observer) {
         this._callSubscriber = observer;

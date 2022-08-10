@@ -6,11 +6,11 @@ const inputWindow = (props) => {
 
     const textInPost = () => {
         debugger;
-        props.addPost();
+        props.dispatch({type: 'ADD-POST'});
     }
     const onPostChange = () => {
         const text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        props.dispatch({type: 'ÚPDATE-TEXT-AREA', newText: text});
     }
 
     return <div> My posts

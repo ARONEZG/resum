@@ -15,9 +15,8 @@ const MyPosts = (props) => {
 
     return <main className={s.main}>
         <div>
-            <Myp addPost={props.addPost}
+            <Myp dispatch={props.dispatch}
                  newPostText={props.profilePage.newPostText}
-                 updateNewPostText={props.updateNewPostText}
             />
             <div className={" "}>
                 {postsElements}
