@@ -1,48 +1,18 @@
-.main {
-    padding: 5px;
-    flex-grow: 3;
-    background-color: rgba(54, 13, 52, .5);
-    display: flex;
-}
-
-.dialogs {
-    flex: 1;
-    border: 2px solid white;
-    display: flex;
-
-}
-
-.dialogsItems {
-    padding: 10px;
-    color: white;
-}
-
-.dialogsItems .active {
-    color: gold;
-}
-
 .messages {
     border: 2px solid white;
     flex:1;
     padding: 10px;
-}
-
-.messages .message {
-    color:white;
-}
-
-.dialogs .active {
-    border: 1px solid gold;
-    flex-direction: column;
-    height: 10vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #bd3b20;
-
-
+    flex-direction: column;
 }
 
-.addDialog {
-    align-self: flex-end;
+.messages .active {
+    color:white;
+    flex-grow: 95;
+}
+
+.form {
+    display: flex;
+    flex-grow: 5;
+    align-self: center;
 }

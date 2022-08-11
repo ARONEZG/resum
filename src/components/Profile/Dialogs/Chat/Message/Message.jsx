@@ -1,10 +1,10 @@
 import React from "react";
-
+import s from './Message.module.css'
 
 
 const Message = (props) => {
 
-    return <div>{props.message}</div>
+    return <div className={s.chatWindow}>{props.message}</div>
 }
 
 
