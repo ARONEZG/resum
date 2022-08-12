@@ -18,8 +18,8 @@ const Profile = (props) => {
             />}
             />
             <Route path="/dialogs/*" element={<Dialogs
-                dialogs={props.profilePage.dialogs}
-                messages={props.messagesPage.messages}
+                messagesPage={props.messagesPage}
+                dispatch={props.dispatch}
             />}
             />
         </Routes>

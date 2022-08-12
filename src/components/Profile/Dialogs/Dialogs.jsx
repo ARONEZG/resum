@@ -7,9 +7,11 @@ const Dialogs = (props) => {
 
     return <div className={s.main}>
 
-        <NameOfUsers dialogs={props.dialogs}/>
+        <NameOfUsers dialogs={props.messagesPage.dialogs} dispatch={props.dispatch} />
 
-        <Chat messages={props.messages}/>
+        <Chat messages={props.messagesPage.messages}
+              newTextMessage={props.messagesPage.newTextMessage}
+              dispatch={props.dispatch} />
 
     </div>;
 }
