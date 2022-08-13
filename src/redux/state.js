@@ -1,8 +1,17 @@
+import profilePageReducer from "./profile-reducer";
+import messagesPageReducer from "./messages-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
+
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXT_AREA = 'UPDATE-TEXT-AREA';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
 const SEND_MESSAGES = 'SEND_MESSAGES';
 const CURRENT_ID = 'CURRENT_ID';
+
+
+
 
 const store = {
     _state: {
@@ -38,48 +47,27 @@ const store = {
             newTextMessage: 'message',
             dialogId: '',
         },
+
+        sidebar: {},
     },
+
+    
 
     getState() {
         return this._state;
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            const newId = this._state.profilePage.posts.length + 1;
-            const newPost = {
-                id: newId,
-                message: this._state.profilePage.newPostText,
-                likesCount: newId,
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state); // функция субскрайбер рисует дом
-        }
-        else if (action.type === UPDATE_TEXT_AREA) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-          
-            this._state.messagesPage.newTextMessage = action.newText;
-            this._callSubscriber(this._state);
 
-        } else if (action.type === SEND_MESSAGES) {
+       this._state.profilePage = profilePageReducer(this._state.profilePage, action);
+       this._state.messagesPage = messagesPageReducer(this._state.messagesPage, action);
+       this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 
-            const newMessage = this._state.messagesPage.newTextMessage;
-            const currentId = this._state.messagesPage.dialogId;
-
-            this._state.messagesPage.messages[currentId - 1].messages = newMessage;
-
-            this._state.messagesPage.newTextMessage = '';
-            this._callSubscriber(this._state);
-
-
-        } else if (action.type = CURRENT_ID) {
-            this._state.messagesPage.dialogId = action.id;
-            console.log(this._state.messagesPage.dialogId);
-        }
+       this._callSubscriber(this._state);
+       if (action.type = CURRENT_ID) {
+        this._state.messagesPage.dialogId = action.id;
+     
+       }
     },
 
 
