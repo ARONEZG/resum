@@ -1,6 +1,8 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXT_AREA = 'UPDATE-TEXT-AREA';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
+const SEND_MESSAGES = 'SEND_MESSAGES';
+const CURRENT_ID = 'CURRENT_ID';
 
 const store = {
     _state: {
@@ -23,7 +25,7 @@ const store = {
                 { id: 3, messages: 'Sashal;k;klp' },
                 { id: 4, messages: 'Ilya;fkvflkvmlv' },
                 { id: 5, messages: 'Dimaéc;l;kll' },
-                { id: 6, messages: 'Mishasdl;llfkd' },
+                { id: 6, messages: 'Mishasdl;llfkd'},
             ],
             dialogs: [
                 { id: 1, name: 'Artem' },
@@ -33,7 +35,8 @@ const store = {
                 { id: 5, name: 'Dima' },
                 { id: 6, name: 'Misha' },
             ],
-            newTextMessage: 'message'
+            newTextMessage: 'message',
+            dialogId: '',
         },
     },
 
@@ -62,6 +65,20 @@ const store = {
             this._state.messagesPage.newTextMessage = action.newText;
             this._callSubscriber(this._state);
 
+        } else if (action.type === SEND_MESSAGES) {
+
+            const newMessage = this._state.messagesPage.newTextMessage;
+            const currentId = this._state.messagesPage.dialogId;
+
+            this._state.messagesPage.messages[currentId - 1].messages = newMessage;
+
+            this._state.messagesPage.newTextMessage = '';
+            this._callSubscriber(this._state);
+
+
+        } else if (action.type = CURRENT_ID) {
+            this._state.messagesPage.dialogId = action.id;
+            console.log(this._state.messagesPage.dialogId);
         }
     },
 
@@ -87,6 +104,15 @@ export const updateNewPostActionCreator = (text) => ({
 export const updateNewMessageActionCreator = (text) => ({
     type: UPDATE_NEW_MESSAGE_TEXT,
     newText: text,
+})
+
+export const addNewMessageActionCreator = (id) => ({
+    type: SEND_MESSAGES,
+    id: id,
+})
+export const currentIdActionCreator = (id) => ({
+    type: CURRENT_ID,
+    id: id,
 })
 
 

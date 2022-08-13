@@ -4,9 +4,9 @@ import DialogsItem from "./DialogsItem/DialogsItem";
 
 
 const NameOfUsers = (props) => {
-    const dialogsElements = props.dialogs.map(
+    const dialogsElements = props.messagesPage.dialogs.map(
         dialog =>
-            <DialogsItem id={dialog.id} name={dialog.name}/>);
+            <DialogsItem id={dialog.id} name={dialog.name} dispatch={props.dispatch}/>);
 
     return <div className={s.dialogs}>
         <div className={s.dialogsItems}>

@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import s from "./Chat.module.css";
 import Message from "./Message/Message";
-import { updateNewMessageActionCreator } from "../../../../redux/state";
+import {addNewMessageActionCreator, updateNewMessageActionCreator} from "../../../../redux/state";
 
 
 const Chat = (props) => {
@@ -11,9 +11,9 @@ const Chat = (props) => {
 
     const messagesElements = props.messages.map(
         dialog =>
-            <Route 
-            path={"/" + dialog.id} 
-            element={<Message id={dialog.id} 
+            <Route
+            path={"/" + dialog.id}
+            element={<Message id={dialog.id}
             message={dialog.messages} />}
             />);
 
@@ -23,6 +23,12 @@ const Chat = (props) => {
         props.dispatch(action);
     }
 
+    const textInPost = () => {
+        const idArray = props.messages.map(el => el.id);
+        props.dispatch(addNewMessageActionCreator(idArray[1]));
+    }
+
+
     return <div className={s.messages}>
         <Routes className={s.active}>
             {messagesElements}
@@ -31,7 +37,7 @@ const Chat = (props) => {
             <textarea ref={newMessageElement}
                 value={props.newTextMessage}
                 onChange={onMessageChange} />
-            <button>Send Message</button>
+            <button onClick={textInPost} >Send Message</button>
         </div>
     </div>;
 }
