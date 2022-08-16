@@ -9,15 +9,14 @@ const DialogsItem = (props) => {
 
     return <div className={s.active}>
         <NavLink to={path}
-                 className={({isActive}) => {
-                     if(isActive) {
-                         const currentId = props.id;
-                         const action = currentIdActionCreator(currentId);
-                         props.dispatch(action);
-                         return `${s.dialogsItems} ${s.active}`;
-                     }
-                     return s.item;
-                 }}
+                 className={({isActive}) => (isActive ? `${s.dialogsItems} ${s.active}` : s.item) } 
+                 onClick={(click) => {
+                    if(click) {
+                        const currentId = props.id;
+                        const action = currentIdActionCreator(currentId);
+                        props.dispatch(action);
+                    }
+                }}
         >
             {props.name}
         </NavLink>
