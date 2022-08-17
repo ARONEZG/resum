@@ -2,27 +2,19 @@ import React from "react";
 import s from './MyPosts.module.css';
 import Post from './Post/Post'
 import Myp from "./Myp/Myp";
+import MypContainer from "./Myp/MypContainer";
 
 
 
-const MyPosts = (props) => {
-    const postsElements = props.profilePage.posts.map(
-        post =>
-            <Post id={post.id}
-                  message={post.message}
-                  likes={post.likesCount}/>
-    );
-
-    return <main className={s.main}>
+const MyPosts = (props) => <main className={s.main}>
         <div>
-            <Myp dispatch={props.dispatch}
-                 newPostText={props.profilePage.newPostText}
-            />
+            <MypContainer store={props.store}/>
             <div className={" "}>
-                {postsElements}
+                {props.posts}
+            </div>
         </div>
-    </div>
-</main>
-}
+    </main>
+
+
 
 export default MyPosts;

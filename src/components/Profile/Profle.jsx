@@ -1,9 +1,10 @@
 import React from "react";
 import s from './Profile.module.css';
 import Navbar from "./Navbar/Navbar";
-import MyPosts from "./MyPosts/MyPosts";
 import Dialogs from "./Dialogs/Dialogs";
 import { Route, Routes } from "react-router-dom";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import DialogsContainer from "./Dialogs/DialogsContainer";
 
 
 const Profile = (props) => {
@@ -12,15 +13,9 @@ const Profile = (props) => {
 
         <Navbar/>
         <Routes>
-            <Route path="/pos/*" element={<MyPosts
-                profilePage={props.profilePage}
-                dispatch={props.dispatch}
-            />}
+            <Route path="/pos/*" element={<MyPostsContainer />}
             />
-            <Route path="/dialogs/*" element={<Dialogs
-                messagesPage={props.messagesPage}
-                dispatch={props.dispatch}
-            />}
+            <Route path="/dialogs/*" element={<DialogsContainer store={props.store}/>}
             />
         </Routes>
 

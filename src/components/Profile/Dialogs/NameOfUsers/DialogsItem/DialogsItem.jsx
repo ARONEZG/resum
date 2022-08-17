@@ -14,7 +14,7 @@ const DialogsItem = (props) => {
                     if(click) {
                         const currentId = props.id;
                         const action = currentIdActionCreator(currentId);
-                        props.dispatch(action);
+                        props.store.dispatch(action);
                     }
                 }}
         >

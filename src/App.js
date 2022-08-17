@@ -9,11 +9,7 @@ import Footer from "./components/Footer/Footer";
 function App(props) {
     return (<div className="page">
             <Header/>
-            <Profile
-                dispatch={props.dispatch}
-                profilePage={props.appState.profilePage}
-                messagesPage={props.appState.messagesPage}
-            />
+            <Profile/>
             <Footer/>
         </div>
     );
