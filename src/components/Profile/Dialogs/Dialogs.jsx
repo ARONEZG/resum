@@ -8,8 +8,8 @@ const Dialogs = (props) => {
 
     return <div className={s.main}>
 
-        <NameOfUsersContainer store={props.store}/>
-        <ChatContainer store={props.store}/>
+        <NameOfUsersContainer />
+        <ChatContainer />
 
     </div>;
 }

@@ -14,24 +14,33 @@ const initialState = {
     newPostText: 'lox',
 }
 
- const profilePageReducer = (state = initialState, action) => {
-    if (action.type === ADD_POST) {
-        const newId = state.posts.length + 1;
-        const newPost = {
-            id: newId,
-            message: state.newPostText,
-            likesCount: newId,
-        };
-        state.posts.push(newPost);
-        state.newPostText = '';
+const profilePageReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case ADD_POST: {
+            const newId = state.posts.length + 1;
+            const newPost = {
+                id: newId,
+                message: state.newPostText,
+                likesCount: newId,
+            };
+            return {
+                ...state,
+                newPostText: '',
+                posts: [...state.posts, newPost]
+            };
+        }
+        case UPDATE_TEXT_AREA:
+            return {
+                ...state,
+                newPostText: action.newText
+            };
 
-    }
-    else if (action.type === UPDATE_TEXT_AREA) {
-        state.newPostText = action.newText;
+        default:
+            return state;
 
     }
    
-    return state;
+
 }
 
 

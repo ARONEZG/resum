@@ -3,13 +3,15 @@ import { Routes, Route } from "react-router-dom";
 import Message from "./Message/Message";
 import {addNewMessageActionCreator, updateNewMessageActionCreator} from "../../../../redux/state";
 import Chat from "./Chat";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const ChatContainer = (props) => {
-
+    const dispatch = useDispatch();
+    const messagesPage = useSelector(state => state.messagesPage);
     const newMessageElement = React.createRef();
 
-    const messagesElements = props.store.getState().messagesPage.messages.map(
+    const messagesElements = messagesPage.messages.map(
         dialog =>
             <Route
             path={"/" + dialog.id}
@@ -20,12 +22,12 @@ const ChatContainer = (props) => {
     const onMessageChange = () => {
         const text = newMessageElement.current.value;
         const action = updateNewMessageActionCreator(text);
-        props.store.dispatch(action);
+        dispatch(action);
     }
 
     const textInPost = () => {
-        const idArray = props.store.getState().messagesPage.messages.map(el => el.id);
-        props.store.dispatch(addNewMessageActionCreator(idArray[1]));
+        const idArray = messagesPage.messages.map(el => el.id);
+        dispatch(addNewMessageActionCreator(idArray[1]));
     }
 
 
@@ -33,7 +35,7 @@ const ChatContainer = (props) => {
     referenceByTextArea={newMessageElement}
     messageChange={onMessageChange}
     addMessage={textInPost}
-    textValue={props.store.getState().messagesPage.newTextMessage}/>
+    textValue={messagesPage.newTextMessage}/>
 }
 
 

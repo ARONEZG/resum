@@ -24,28 +24,30 @@ const initialState = {
 }
 
 const messagesPageReducer = (state = initialState, action) => {
+    const stateCopy = {...state, messages: [...state.messages]};
+
 
     switch (action.type) {
-    
-        case UPDATE_NEW_MESSAGE_TEXT:  
-        state.newTextMessage = action.newText;
-        return state;
-        
+
+        case UPDATE_NEW_MESSAGE_TEXT:
+            stateCopy.newTextMessage = action.newText;
+            return stateCopy;
+
 
         case SEND_MESSAGES:
-        const newMessage = state.newTextMessage;
-        const currentId = state.dialogId;
-        state.messages[currentId - 1].messages = newMessage;
-        state.newTextMessage = '';
-        return state;
+            const newMessage = stateCopy.newTextMessage;
+            const currentId = stateCopy.dialogId;
+            stateCopy.messages[currentId - 1].messages = newMessage;
+            stateCopy.newTextMessage = '';
+            return stateCopy;
 
 
         case CURRENT_ID:
-        state.dialogId = action.id;
-        return state;
+            stateCopy.dialogId = action.id;
+            return stateCopy;
 
         default:
             return state;
-}
+    }
 }
 export default messagesPageReducer;
