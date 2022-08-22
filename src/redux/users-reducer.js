@@ -5,7 +5,7 @@ const SET_USERS = 'SET_USERS';
 
 
 const initialState = {
-    users: []
+    users: [],
 };
 
 
@@ -37,9 +37,7 @@ const usersReducer = (state = initialState, action) => {
                 }),
             };
         case SET_USERS:
-
-            const newState = {...state, users: [...state.users, ...action.users]};
-            return newState;
+            return {...state, users: [...action.users]};
 
         default:
             return state;

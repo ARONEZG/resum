@@ -5,20 +5,31 @@ import userPhoto from '../../../assets/images/user.png'
 
 
 class Users extends React.Component {
-    getUsers = () => {
-
-        if (this.props.users.length === 0) {
-            axios.get('https://social-network.samuraijs.com/api/1.0/users')
-                .then(response => {
-                    this.props.setUsers(response.data.items);
-                });
-        }
+    constructor(props) {
+        super(props);
     }
+    
+    componentDidMount() {
+
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then((response) => {
+                debugger;
+                this.props.setUsers(response.data.items);
+            });
+
+
+    }
+
 
 
     render() {
         return <div className={s.main}>
-            <button onClick={this.getUsers}>Get users</button>
+            <div>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </div>
             {
                 this.props.users.map(u => {
                     return <div key={u.id}>
@@ -47,10 +58,10 @@ class Users extends React.Component {
                     </span>
                     <span>
                         <div>
-
+                            u.location.city
                         </div>
                         <div>
-
+                            u.location.country
                         </div>
                     </span>
                 </span>
