@@ -10,4 +10,15 @@
 }
 .selectedPage {
     font-weight: bold;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.page {
+    color: blue;
+    padding: 10px;
+    font-size: 15px;
+}
+.proloader {
+    width: 100px;
 }
