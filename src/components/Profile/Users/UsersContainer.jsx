@@ -31,15 +31,20 @@ class UsersContainer extends React.Component {
             });
     }
 
+    goToProfile = (profileId) => {
+
+    }
+
     render() {
         return <>
             {this.props.isFetching ? <Preloader/> : <Users totalUsersCount={this.props.totalUsersCount}
-                                               pageSize={this.props.pageSize}
-                                               currentPage={this.props.currentPage}
-                                               users={this.props.users}
-                                               onPageChanged={this.onPageChanged}
-                                               follow={this.props.follow}
-                                               unfollow={this.props.unfollow}
+                                                           pageSize={this.props.pageSize}
+                                                           currentPage={this.props.currentPage}
+                                                           users={this.props.users}
+                                                           onPageChanged={this.onPageChanged}
+                                                           follow={this.props.follow}
+                                                           unfollow={this.props.unfollow}
+                                                           goToProfile={this.props.goToProfile}
             />
             }
 

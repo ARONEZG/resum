@@ -1,6 +1,7 @@
 import React from "react";
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
+import Preloader from "../../common/Preloader/Preloader";
 
 
 
@@ -19,8 +20,15 @@ const MyPosts = (props) => {
     const  onAddPosts = () => {
         props.addPost();
     }
+    if (!props.profileUser) {
+        return <Preloader/>
+    }
 
     return <main className={s.main}>
+        <div className={s.profile}>
+            <img src={props.profileUser.photos.large} alt=""/>
+            {props.profileUser.aboutMe}
+        </div>
 
         <div>My posts</div>
 

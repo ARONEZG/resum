@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXT_AREA = 'UPDATE-TEXT-AREA';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 const initialState = {
     posts: [
@@ -12,6 +13,7 @@ const initialState = {
     ],
 
     newPostText: 'lox',
+    profileUser: null,
 }
 
 const profilePageReducer = (state = initialState, action) => {
@@ -34,6 +36,11 @@ const profilePageReducer = (state = initialState, action) => {
                 ...state,
                 newPostText: action.newText
             };
+        case SET_USER_PROFILE:
+            return {
+                ...state,
+                profileUser: {...action.profileUser},
+            }
 
         default:
             return state;
@@ -43,6 +50,11 @@ const profilePageReducer = (state = initialState, action) => {
 
 }
 
-
+export const setUserProfileAC = (profileUser) => {
+    return {
+        type: SET_USER_PROFILE,
+        profileUser: profileUser,
+    }
+}
 
 export default profilePageReducer;
