@@ -3,7 +3,7 @@ import messagesPageReducer from "./messages-reducer";
 import profilePageReducer from "./profile-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reducer";
-
+import authReducer from "./auth-reducer";
 
 
 const reducer = combineReducers({
@@ -11,6 +11,7 @@ const reducer = combineReducers({
     messagesPage: messagesPageReducer,
     sidebar: sidebarReducer,
     usersPage: usersReducer,
+    auth: authReducer,
 });
 
 

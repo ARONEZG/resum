@@ -3,14 +3,28 @@ import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/state";
 import axios from "axios";
-import {setUserProfileAC} from "../../../redux/profile-reducer"
+import {setUserProfileAC} from "../../../redux/profile-reducer";
+import withRouter from "./WithRouterWrapper";
+
+
 class MyPostsContainer extends React.Component {
 
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + this.props.router.params.userId)
             .then((response) => {
                 this.props.setUserProfile(response.data);
             });
+    
+        
+    }
+
+    componentDidUpdate() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + this.props.router.params.userId)
+            .then((response) => {
+                this.props.setUserProfile(response.data);
+            });
+    
+        
     }
 
     render() {
@@ -24,6 +38,7 @@ const mapStateToProps = (state) => {
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText,
         profileUser: state.profilePage.profileUser,
+
     }
 }
 
@@ -31,5 +46,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     updateNewPostText: updateNewPostActionCreator,
     addPost: addPostActionCreator,
-    setUserProfile: setUserProfileAC,
-})(MyPostsContainer);
+    setUserProfile: setUserProfileAC
+})(withRouter(MyPostsContainer));

@@ -53,7 +53,7 @@ class UsersContainer extends React.Component {
 
 }
 
-const mapDispatchToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
@@ -63,19 +63,10 @@ const mapDispatchToProps = (state) => {
     };
 }
 
-const mapStateToProps = () => {
-    return {
-        follow: followAC,
-        unfollow: unfollowAC,
-        setUsers: setUsersAC,
-        setCurrentPage: setPageAC,
-        toggleIsFetching: toggleIsFetchingAC,
-    };
-}
 
 
 
-export default connect(mapDispatchToProps, {
+export default connect(mapStateToProps, {
     follow: followAC,
     unfollow: unfollowAC,
     setUsers: setUsersAC,

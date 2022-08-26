@@ -1,5 +1,6 @@
 import React from "react";
 import s from './Header.module.css';
+import {NavLink} from "react-router-dom";
 
 const Header = () =>
     <header className={s.header}>
@@ -9,15 +10,9 @@ const Header = () =>
             </div>
         </div>
 
-        <div>
+        <div className={s.loginBlock}>
 
-            <ul className={s.navbar}>
-                <li className={s.li} ><h3>
-                    Education
-                </h3></li>
-                <li className={s.li} ><h3>About me</h3></li>
-                <li className={s.li} ><h3>Skills</h3></li>
-            </ul>
+      <NavLink to={'/login'}>login</NavLink>
 
         </div>
 

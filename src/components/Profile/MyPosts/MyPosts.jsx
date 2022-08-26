@@ -2,10 +2,13 @@ import React from "react";
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
 import Preloader from "../../common/Preloader/Preloader";
+import {useNavigate, useLocation, useParams} from "react-router-dom";
 
 
 
 const MyPosts = (props) => {
+
+
     const newPostElement = React.createRef();
     const postsElements = props.posts.map(
         post =>
@@ -28,6 +31,7 @@ const MyPosts = (props) => {
         <div className={s.profile}>
             <img src={props.profileUser.photos.large} alt=""/>
             {props.profileUser.aboutMe}
+            {props.profileUser.fullName}
         </div>
 
         <div>My posts</div>

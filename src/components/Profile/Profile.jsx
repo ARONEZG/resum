@@ -13,7 +13,7 @@ const Profile = (props) => {
 
         <Navbar/>
         <Routes>
-            <Route path="/profile/*" element={<MyPostsContainer/>}
+            <Route path="/profile/:userId" element={<MyPostsContainer/>}
             />
             <Route path="/dialogs/*" element={<DialogsContainer/>}
             />
